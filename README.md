@@ -31,6 +31,11 @@ N/A
         update_cache: true
         cache_valid_time: 600
       changed_when: false
+      register: result
+      until: result is success
+      retries: 5
+      delay: 5
+      when: ansible_os_family == 'Debian'
   roles:
    - role: calvinbui.ansible_nfs_client
 ```
