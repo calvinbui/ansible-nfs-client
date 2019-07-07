@@ -11,6 +11,8 @@ lint:
 platforms:
   - name: ansible-nfs-client
     image: geerlingguy/docker-ubuntu1804-ansible
+    privileged: true
+    pre_build_image: true
 provisioner:
   name: ansible
   options:
